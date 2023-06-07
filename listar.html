@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <select name="paises" id="paises">
+    <option value="">Seleccione</option>
+    <option value="PE">Peru</option>
+    <option value="CO">Colombia</option>
+    <option value="VZ">Venezuela</option>
+  </select>
+  <button type="button" id="identificar">Ver</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lista = document.getElementById("paises");
+      const boton = document.getElementById("identificar");
+
+      boton.addEventListener("click", () => {
+        console.log(lista.value);
+      });
+
+      lista.addEventListener("change", () =>{
+        console.log(lista.value);
+      });
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cargar imagenes</title>
+</head>
+<body>
+  <!--
+    Las respuestas obtenidas por fetch() pueden ser:
+      json()
+      text()    
+      blob() => Binary Large Objetcs
+  -->
+  <button id="image1" type="button">RAM</button>
+  <button id="image2" type="button">Microprocesador</button>
+  <button id="image3" type="button">Unidad estado sólido</button>
+
+  <hr>
+  <img src="" alt="" id="foto">
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const bt1 = document.getElementById("image1");
+        const bt2 = document.getElementById("image2");
+        const bt3 = document.getElementById("image3");
+        const foto = document.getElementById("foto");
+
+        function loadImage(nombre){
+          fetch(`img/${nombre}`)
+          .then(response => response.blob())
+          .then(dato => {
+            foto.setAttribute("src", URL.createObjectURL(dato))
+          });
+        }
+
+        bt1.addEventListener("click", () =>{
+          loadImage("ram.jpg");
+        });
+
+        bt2.addEventListener("click", () =>{
+          loadImage("microprocesador.jpg");
+        });
+
+        bt3.addEventListener("click", () =>{
+          loadImage("ssd.jpg");
+        });
+      });
+
+    </script>
+</body>
+</html>
